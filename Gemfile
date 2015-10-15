@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
-
+#Шифрование пароля в виде хэша пароля
+gem 'bcrypt-ruby', '3.1.2'
+gem 'bcrypt'
+gem 'bootstrap-sass', '~> 3.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
