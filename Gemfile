@@ -5,8 +5,11 @@ gem 'bcrypt'
 gem 'bootstrap-sass', '~> 3.3.1'
 # заполнение базы данными
 gem 'faker', '1.1.2'
+# добавление постраничной навигации
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
+gem 'russian'
+gem 'simple_form'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'

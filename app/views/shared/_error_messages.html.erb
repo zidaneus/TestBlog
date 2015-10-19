@@ -1,7 +1,7 @@
 <% if @user.errors.any? %>
 	<div id="error_explanation">
 		<div class="alert alert-error">
-			Форма содержит <%= pluralize(@user.errors.count, "error") %>.
+			Количество ошибок: <%= @user.errors.count %>.
 		</div>
 		<ul>
 			<% @user.errors.full_messages.each do |msg| %>

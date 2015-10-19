@@ -1,8 +1,15 @@
 class ArticlesController < ApplicationController
-	http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
+	def home
+		if signed_in?
+			@comment = current_user.comments.build
+			@feed_items = current_user.feed.paginate(page: params[:page])
+		end
+	end
 
 	def index
-		@articles = Article.all
+		@articles = Article.paginate :page => params[:page], :per_page => 15#Article.paginate(page: params[:page])
+		#@user = User.find_by(id: params[:user_id])
 	end
 
 	def show

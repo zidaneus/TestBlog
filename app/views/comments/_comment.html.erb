@@ -1,14 +1,11 @@
-<p>
-	<strong>Автор:</strong>
-	<%= comment.user_id %>
-</p>
-
-<p>
-	<strong>Комментарий:</strong>
-	<%= comment.text %>
-</p>
-
-<p>
-	<%= link_to 'Удалить комментарий', [comment.article, comment], method: :delete,
-		data: { confirm: 'Вы уверены?' } %>
-</p>
+<li>
+	<span class="content"><%= comment.text %> | ( <%= comment.user.fio %> ) <%= gravatar_for comment.user %> </span>
+	<span class="timestamp">
+		Posted <%= time_ago_in_words(comment.created_at) %> ago.
+	</span>
+	<% if current_user?(comment.user) %>
+		<%= link_to "delete", comment, method: :delete,
+			data: { confirm: "Вы уверены?" },
+			title: comment.text %>
+	<% end %>
+</li>

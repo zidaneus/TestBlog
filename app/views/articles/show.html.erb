@@ -1,18 +1,31 @@
 <p>
-	<strong>Title:</strong>
-	<%= @article.title %>
+	<h3> <%= @article.title %>
+		<i class="article_info">( Автор: <%= @article.user.fio %>, 
+			<% if @article.created_at == @article.updated_at %> 
+				добавлено: <%= @article.created_at %> 
+			<% else %> 
+				обновлено: <%= @article.updated_at %>
+			<% end %>
+		)</i>
+	</h3>
 </p>
 
 <p>
-	<strong>Text:</strong>
 	<%= @article.text %>
 </p>
 
 <h2>Комментарии</h2>
 <%= render @article.comments %>
 
-<h2>Добавить комментарий:</h2>
-<%= render 'comments/form' %>
+
+<% if signed_in? %>
+	<h2>Добавить комментарий:</h2>
+	<%= render 'comments/form' %>
+<% else %>
+	<h2>Для добавления комментария необходимо <%= link_to "войти/зарегистрироваться", signin_path %></h2>
+<% end %>
+
+
 
 <% link_to 'Редактировать', edit_article_path(@article) %>
 <%= link_to 'Назад', articles_path %>
