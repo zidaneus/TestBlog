@@ -1,12 +1,20 @@
 class CommentsController < ApplicationController
 	before_action :signed_in_user, only: [:create, :destroy]
 	before_action :correct_user, only: :destroy
-	http_basic_authenticate_with name: "dhh", password: "secret", only: :destroy
 
 	def create
+		# @comment = Comment.new params[:comment]
+  #   	@comment.article = @article ||= Article.find( params[:article_id] )
+  #   	@comment.user = @user
+
 		@article = Article.find(params[:article_id])
+
 		@comment = @article.comments.create(comment_params)
-		redirect_to article_path(@article)
+		@user = current_user
+		if @comment.save
+			flash[:success] = "Комментарий добавлен!"
+			redirect_to article_path(@article)
+		end
 	end
 
 	def destroy

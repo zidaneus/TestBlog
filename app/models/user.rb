@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	# подумать над тем, стоит ли удалять комментарии и статьи при удалении пользователя
-	has_many :comments, dependent: :destroy
-	has_many :articles, dependent: :destroy
+	has_many :comments
+	has_many :articles
 	has_many :relationships, foreign_key: "follower_id", dependent: :destroy
 	has_many :followed_users, through: :relationships, source: :followed
 	has_many :reverse_relationships, foreign_key: "followed_id",

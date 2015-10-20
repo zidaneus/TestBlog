@@ -11,6 +11,10 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'russian'
 gem 'simple_form'
 
+gem 'ckeditor'
+gem 'sanitize'
+gem 'truncate_html'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record

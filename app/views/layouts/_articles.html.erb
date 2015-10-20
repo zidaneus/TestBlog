@@ -1,0 +1,21 @@
+<tr>
+			<td><%= truncate(article.text, :length => 300) %> <%= link_to 'Подробнее', article_path(article) %></td>
+			
+			<% if signed_in? && article.user_id == current_user.id %>
+				<td><%= link_to 'Редактировать', edit_article_path(article) %> <br><%= link_to 'Удалить', article_path(article), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+				<td></td>
+			<% end %>
+		</tr>
+
+		<tr class="tr_border_bottom">
+			<td>
+
+				<i class="article_info"> 
+					<% if article.created_at == article.updated_at %> 
+						Добавлено: <%= article.created_at %> 
+					<% else %> 
+						Обновлено: <%= article.updated_at %>
+					<% end %>
+				</i>
+			</td>
+		</tr>

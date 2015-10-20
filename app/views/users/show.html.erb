@@ -1,24 +1,14 @@
 <% provide(:title, @user.fio) %>
 <div class="row">
-	<aside class="span4">
-		<section>
-			<h1>
-				<%= gravatar_for @user %>
-				<%= @user.fio %>
-			</h1>
-		</section>
-		<section>
-			<%= render 'shared/stats' %>
-		</section>
-	</aside>
+	
 	<div class="span8">
 		<%= render 'follow_form' if signed_in? %>
-		<% if @user.comments.any? %>
-			<h3>Комментарии (<%= @user.comments.count %>)</h3>
+		<% if @user.articles.any? %>
+			<h3>Мои статьи (<%= @user.articles.count %>)</h3>
 			<ol class="comments">
-				<%= render @comments %>
+				<%= render @articles %>
 			</ol>
-			<%= will_paginate @comments %>
+			<%= will_paginate @articles %>
 		<% end %>
 	</div>
 </div>
