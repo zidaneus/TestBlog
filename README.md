@@ -1,28 +1,28 @@
-== README
+Использование:
+localhost:3000
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Функционал:
+1. Регистрация пользователей:
+Подключен сервис gravatar для показа изображения пользователя по email.
+Пароль в базе хранится в зашифрованном виде.
 
-Things you may want to cover:
+2. Статьи:
+После авторизации домашней страницей является "Мои статьи".
+Пользователь с правами администратора может удалять пользователей из базы.
+Пользователи могут создавать, редактировать, удалять статьи, комментарии. Есть настройка профиля, где можно обновить информацию.
+При добавлении/редактировании статьи встроен WYSIWYG-редактор.
 
-* Ruby version
+Участники:
+Есть пользователь с правами администратора:
+email - example@railstutorial.org
+пароль - foobar12
 
-* System dependencies
+Есть обычные пользователи:
+email - zidaneus@mail.ru
+пароль - zidaneus
 
-* Configuration
+example-1@railstutorial.org
+example-2@railstutorial.org и т. д.
+У всех сгенерированных пользователей пароль - password
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Тестировал используя Google Chrome Версия 46.0.2490.71 m.
