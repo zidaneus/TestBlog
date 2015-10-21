@@ -28,6 +28,10 @@
               <li><%= link_to "Войти/зарегистрироваться", signin_path %></li>
             </ul>
           <% end %>
+          <%= form_tag("/search", method: "get") do %>
+            <li class="li_right_with_margin">  <%= submit_tag("Поиск") %> </li>
+            <li class="li_right_with_margin">  <%= text_field_tag(:search) %> </li>
+          <% end %>
         </ul>
       </nav>
     </div>

@@ -1,7 +1,7 @@
 class Comment < ActiveRecord::Base
 	default_scope -> { order('created_at DESC') }
 	validates :user_id, presence: true
-	validates :text, presence: true, length: { maximum: 200 }
+	validates :text, presence: true, length: { maximum: 500 }
 	belongs_to :article
 	belongs_to :user
 

@@ -300,6 +300,10 @@ aside {
   float: right;
 }
 
+.li_right_with_margin {
+  margin-top: 10px;
+  float: right;
+}
 
 
 .pagination {
@@ -406,4 +410,14 @@ aside {
   color: #999999;
   background-color: #fff;
   cursor: default;
+}
+
+/* link for dynaspan gem */
+
+.ds-content-present > .dyna-span-edit-text {
+  color: #337ab7;
+  &:hover {
+    color: #23527c;
+    text-decoration: underline;
+  }
 }

@@ -1,11 +1,25 @@
-<li>
-	<span class="content"><%= comment.text %> | ( <%= comment.user.fio %> ) <%= gravatar_for comment.user %> </span>
-	<span class="timestamp">
-		Posted <%= time_ago_in_words(comment.created_at) %> ago.
+<section class="tr_border_bottom">
+	<span class="content"> 
+		<%= gravatar_for comment.user %> <%= comment.user.fio %>
+		<span class="timestamp">
+			<% if comment.created_at == comment.updated_at %> 
+				Добавлено: <%= time_ago_in_words(comment.created_at) %> назад
+			<% else %> 
+				Обновлено: <%= time_ago_in_words(comment.updated_at) %> назад
+			<% end %>
+		</span>
 	</span>
+	
 	<% if current_user?(comment.user) %>
-		<%= link_to "delete", comment, method: :delete,
-			data: { confirm: "Вы уверены?" },
-			title: comment.text %>
-	<% end %>
-</li>
+		<%= dynaspan_text_field(comment, comment, :text, "Редактировать") %>
+		<br>
+		<span class="li_right">
+			<%= link_to "Удалить", comment, method: :delete,
+										data: { confirm: "Вы уверены?" },
+										title: comment.text %>
+		</span>
+	<% else %>
+		<span> <%= comment.text %> </span>
+	<% end %>	
+</section>
+

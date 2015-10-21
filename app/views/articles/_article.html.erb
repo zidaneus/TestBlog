@@ -1,6 +1,6 @@
 <li>
 	<span class="content">
-		<%= truncate(article.text, :length => 300) %> <%= link_to "Подробнее", article_path(article) %>
+		<%= truncate_html article.text, :length => 300  %> <%= link_to "Подробнее", article_path(article) %>
 	</span>
 	<span class="timestamp">
 		<% if article.created_at == article.updated_at %>

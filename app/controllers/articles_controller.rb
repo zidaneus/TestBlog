@@ -8,7 +8,9 @@ class ArticlesController < ApplicationController
 	end
 
 	def index
+		@title = "Список статей"
 		@articles = Article.paginate :page => params[:page], :per_page => 15#Article.paginate(page: params[:page])
+		#@article = Article.new
 		#@user = User.find_by(id: params[:user_id])
 	end
 
@@ -47,6 +49,13 @@ class ArticlesController < ApplicationController
 		@article.destroy
 
 		redirect_to articles_path
+	end
+
+	def search
+		
+		@articles = (Article.where("title LIKE '%"+params[:search]+"%' OR text LIKE '%"+params[:search]+"%'")).paginate :page => params[:page], :per_page => 15
+		@title = "Результаты поиска по фразе '"+params[:search]+"'"
+		render 'index'
 	end
 
 	private

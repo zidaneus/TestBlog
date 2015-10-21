@@ -14,6 +14,7 @@ gem 'simple_form'
 gem 'ckeditor'
 gem 'sanitize'
 gem 'truncate_html'
+gem 'dynaspan'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'

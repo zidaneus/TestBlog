@@ -1,4 +1,4 @@
-<h1>Список статей</h1>
+<h1><%= @title %> (статей: <%= @articles.count %>) </h1>
 
 <%= will_paginate %>
 <table>
@@ -38,13 +38,3 @@
 	<% end %>
 </table>
 <%= will_paginate %>
-
-<% if signed_in? %>
-	<%= link_to 'Новая статья', new_article_path %>
-	<section>
-		<%= render 'shared/user_info' %>
-	</section>
-	<section>
-		<%= render 'shared/stats' %>
-	</section>
-<% end %>
