@@ -1,19 +1,28 @@
-<li>
-	<span class="content">
-		<%= truncate_html article.text, :length => 300  %> <%= link_to "Подробнее", article_path(article) %>
-	</span>
-	<span class="timestamp">
-		<% if article.created_at == article.updated_at %>
-			Статья добавлена <%= time_ago_in_words(article.created_at) %> назад.
-		<% else %>
-			Статья обновлена <%= time_ago_in_words(article.updated_at) %> назад.
+<ol class="comments">
+	<li>
+		<h3>  <%= article.title %>
+			<i class="article_info">( Автор: <%= article.user.fio %> )</i>
+		</h3> 
+		<span class="content">
+			<% if params[:action] == 'show' %>
+				<%= article.text.html_safe %>
+			<% else %>
+				<%= truncate_html article.text, :length => 300  %> <%= link_to "Подробнее", article_path(article) %>
+			<% end %>
+		</span>
+		<span class="timestamp">
+			<% if article.created_at == article.updated_at %>
+				Статья добавлена <%= time_ago_in_words(article.created_at) %> назад.
+			<% else %>
+				Статья обновлена <%= time_ago_in_words(article.updated_at) %> назад.
+			<% end %>
+		</span>
+		<% if current_user?(article.user) %>
+			<%= link_to "Редактировать", edit_article_path(article), class: "btn btn-large btn-primary" %>
+			<p class="li_right"><%= link_to "Удалить", article, method: :delete,
+				data: { confirm: "Вы уверены?" },
+				title: article.text %>
+			</p>
 		<% end %>
-	</span>
-	<% if current_user?(article.user) %>
-		<%= link_to "Редактировать", edit_article_path(article) %>
-		<p class="li_right"><%= link_to "Удалить", article, method: :delete,
-			data: { confirm: "Вы уверены?" },
-			title: article.text %>
-		</p>
-	<% end %>
-</li>
+	</li>
+</ol>

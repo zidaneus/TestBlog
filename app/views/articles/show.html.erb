@@ -1,27 +1,10 @@
-<p>
-	<h3> <%= @article.title %>
-		<i class="article_info">( Автор: <%= @article.user.fio %>, 
-			<% if @article.created_at == @article.updated_at %> 
-				добавлено: <%= @article.created_at %> 
-			<% else %> 
-				обновлено: <%= @article.updated_at %>
-			<% end %>
-		)</i>
-	</h3>
-</p>
-
-<p>
-	<%= @article.text.html_safe %>
-</p>
-
-<% if @article.user_id == current_user.id %>
-	<%= link_to 'Редактировать', edit_article_path(@article) %>
-<% end %>
-<%= link_to 'Назад', articles_path %>
+<%= render @article %>
+<ol class="comments">
+	<li><%= link_to 'Назад', articles_path %></li>
+</ol>
 
 <h2>Комментарии</h2>
 <%= render @article.comments %>
-
 
 <% if signed_in? %>
 	<h2>Добавить комментарий:</h2>

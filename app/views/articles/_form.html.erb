@@ -1,9 +1,7 @@
-<%= form_for @article do |f| %>
+<%= simple_form_for @article do |f| %>
 	<% if @article.errors.any? %>
 		<div id="error_explanation">
-			<h2>
-				<%= pluralize(@article.errors.count, "error") %> при сохранении статьи:
-			</h2>
+			Количество ошибок при сохранении статьи: <%= @article.errors.count %>
 			<ul>
 				<% @article.errors.full_messages.each do |msg| %>
 					<li><%= msg %></li>
@@ -23,6 +21,6 @@
 	</p>
 
 	<p>
-		<%= f.submit %>
+		<%= f.submit "Сохранить статью", class: "btn btn-large btn-primary" %>
 	</p>
 <% end %>

@@ -1,40 +1,8 @@
 <h1><%= @title %> (статей: <%= @articles.count %>) </h1>
-
 <%= will_paginate %>
-<table>
 	
-	<% @articles.each_with_index do |article, index| %>
-		
-		<tr>
-			<td>
-				<h3> <%= index+1 %>.) <%= article.title %>
-					<i class="article_info">( Автор: <%= article.user.fio %> )</i>
-				</h3> 
-			</td>
-		</tr>
-		<tr>
-			<td><%= truncate_html article.text, :length => 300  %> <%= link_to 'Подробнее', article_path(article) %></td>
-			
-			<% if signed_in? && article.user_id == current_user.id %>
-				<td><%= link_to 'Редактировать', edit_article_path(article) %> <br><%= link_to 'Удалить', article_path(article), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
-				<td></td>
-			<% end %>
-		</tr>
-
-		<tr class="tr_border_bottom">
-			<td>
-
-				<i class="article_info"> 
-					<% if article.created_at == article.updated_at %> 
-						Добавлено: <%= article.created_at %> 
-					<% else %> 
-						Обновлено: <%= article.updated_at %>
-					<% end %>
-				</i>
-			</td>
-		</tr>
-		
-		
+	<% @articles.each do |article| %>
+		<%= render article %>
 	<% end %>
-</table>
+
 <%= will_paginate %>

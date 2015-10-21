@@ -4,4 +4,5 @@ class Article < ActiveRecord::Base
 	default_scope -> { order('updated_at DESC') }
 	validates :user_id, presence: true
 	validates :title, presence: true, length: { minimum: 5 }
+	validates :text, presence: true, length: { minimum: 10 }
 end

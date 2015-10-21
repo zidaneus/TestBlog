@@ -19,6 +19,8 @@ ru:
         email: "Адрес электронной почты"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
+        title: "Заголовок"
+        text: "Текст"
 
     #   user:
     #     new:

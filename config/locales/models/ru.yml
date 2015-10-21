@@ -1,0 +1,13 @@
+ru:
+  activerecord:
+    attributes: 
+      article:    
+        title: "Заголовок"
+        text: "Текст"
+      comment:
+        text: "Текст комментария"
+      user:
+        fio: "ФИО"
+        email: "Адрес электронной почты"
+        password: "Пароль"
+        password_confirmation: "Пароль"

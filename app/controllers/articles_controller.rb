@@ -3,13 +3,13 @@ class ArticlesController < ApplicationController
 	def home
 		if signed_in?
 			@comment = current_user.comments.build
-			@feed_items = current_user.feed.paginate(page: params[:page])
+			#@feed_items = current_user.feed.paginate(page: params[:page])
 		end
 	end
 
 	def index
 		@title = "Список статей"
-		@articles = Article.paginate :page => params[:page], :per_page => 15#Article.paginate(page: params[:page])
+		@articles = Article.paginate :page => params[:page], :per_page => 15
 		#@article = Article.new
 		#@user = User.find_by(id: params[:user_id])
 	end
@@ -28,6 +28,7 @@ class ArticlesController < ApplicationController
 
 	def create
 		@article = Article.new(article_params)
+		@article.user = current_user
 		if @article.save
 			redirect_to @article
 		else
@@ -52,7 +53,6 @@ class ArticlesController < ApplicationController
 	end
 
 	def search
-		
 		@articles = (Article.where("title LIKE '%"+params[:search]+"%' OR text LIKE '%"+params[:search]+"%'")).paginate :page => params[:page], :per_page => 15
 		@title = "Результаты поиска по фразе '"+params[:search]+"'"
 		render 'index'

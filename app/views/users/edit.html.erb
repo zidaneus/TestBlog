@@ -1,9 +1,14 @@
 <% provide(:title, "Редактирование пользователя") %>
 <h1>Обновите свой профиль</h1>
-
+<section><%= gravatar_for @user %>
+	<a href="http://gravatar.com/emails">Изменить изображение</a>
+</section>
 <div class="row">
+
 	<div class="span6 offset3">
-		<%= form_for(@user) do |f| %>
+	
+
+		<%= simple_form_for(@user) do |f| %>
 			<%= render 'shared/error_messages' %>
 
 			<%= f.label :fio %>
@@ -21,7 +26,5 @@
 			<%= f.submit "Сохранить изменения", class: "btn btn-large btn-primary" %>
 		<% end %>
 
-		<%= gravatar_for @user %>
-		<a href="http://gravatar.com/emails">Изменить</a>
 	</div>
 </div>

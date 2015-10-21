@@ -95,15 +95,16 @@ p {
 #fio_header {
   
   float: left;
-  margin-right: 10px;
-  font-size: 1.2em;
+  font-size: 1em;
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
-  padding-left: 30px;
+  padding-left: 10px;
   font-weight: bold;
   line-height: 1;
+  word-wrap: break-word;
+
 }
 
 /* footer */
@@ -112,12 +113,8 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
-/*  color: $grayLight; */
   a {
     color: $gray;
-    &:hover {
-/*      color: $grayDarker; */
-    }
   }
   small {
     float: left;
@@ -254,37 +251,6 @@ aside {
 }
 
 
-/* sidebar */
-
-.stats {
-	overflow: auto;
-	a {
-		float: left;
-		padding: 0 10px;
-		border-left: 1px solid $grayLighter;
-		color: gray;
-		&:first-child {
-			padding-left: 0;
-			border: 0;
-		}
-		&:hover {
-			text-decoration: none;
-			color: blue;
-		}
-	}
-	strong {
-		display: block;
-	}
-}
-
-.user_avatars {
-	overflow: auto;
-	margin-top: 10px;
-	.gravatar {
-		margin: 1px 1px;
-	}
-}
-
 /* article */
 
 .article_info {
@@ -292,6 +258,7 @@ aside {
 	color: gray;
 }
 
+/* line for comments */
 .tr_border_bottom {
 	border-bottom: 1px solid $grayLighter;
 }
@@ -303,6 +270,7 @@ aside {
 .li_right_with_margin {
   margin-top: 10px;
   float: right;
+  width: 9%;
 }
 
 

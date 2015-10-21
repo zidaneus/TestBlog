@@ -14,9 +14,8 @@
 		<%= dynaspan_text_field(comment, comment, :text, "Редактировать") %>
 		<br>
 		<span class="li_right">
-			<%= link_to "Удалить", comment, method: :delete,
-										data: { confirm: "Вы уверены?" },
-										title: comment.text %>
+			<%= link_to "Удалить", [comment.article, comment], method: :delete,
+										data: { confirm: "Вы уверены?" } %>
 		</span>
 	<% else %>
 		<span> <%= comment.text %> </span>
